@@ -24,7 +24,6 @@ class UserInfor extends React.Component{
         this.setState({
             age: event.target.value,
         })
-        console.log(event.target.value);
     }
 
     handleOnChangeYear = (event) =>{
@@ -48,8 +47,10 @@ class UserInfor extends React.Component{
 
                     <label>Your address</label>
                     <input type="text" value={this.state.address} onChange={(event)=>{this.handleOnChange(event)}}></input>
+                    
                     <label>year</label>
                     <input type="text" value={this.state.year} onChange={(event) =>{this.handleOnChangeYear(event)}}></input>
+
                     <button>Submit</button>
                 </form>
             </div>

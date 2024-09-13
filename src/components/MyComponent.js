@@ -8,11 +8,10 @@ import DisplayInfo from "./DisplayInfo";
 class MyComponent extends React.Component {
     
     state = {
-        listUser:[
-            {id: 1,name: "Tu",age: 19   },
-            {id: 2,name: "Tommy",age: 20   },
-            {id: 3,name: "John",age: 26   },
-
+        listUser: [
+            {name: "Tu", age: "19"},
+            {name : "John", age: "30"},
+            {name: "Quang", age: "15"}
         ]
     }
     //
@@ -23,7 +22,7 @@ class MyComponent extends React.Component {
             <div >
                 <UserInfor></UserInfor>
                 <br/><br/>
-                <DisplayInfo listUser={this.state.listUser}></DisplayInfo>
+                <DisplayInfo listUser = {this.state.listUser}></DisplayInfo>
             </div>
         )
 

@@ -2,32 +2,40 @@ import React from "react";
 
 
 class DisplayInfo extends React.Component{
+    state = {
+        isShowListUser: true
+    }
+
+    handleShowHiden =()=>{
+        this.setState({
+            isShowListUser: !this.state.isShowListUser
+        })
+    }
     render(){
-        //props --> properties
-        const {listUser } = this.props;
-        return (
+        const {listUser} = this.props;
+        return(
             <div>
-                {listUser.map((user,index)=>{
-                    console.log(user)
-                    return(
-                        <div>
-                            <div>My name is {user.name}</div>
-                            <div>My age is {user.age}</div>
-                            <br></br>
-                        </div>
-                    )
-                })}
-                {/* <div>My name is {name}</div>
-                <div>My age is {age}</div>
+                <div>
+                    <span onClick={()=>{this.handleShowHiden()}}>
+                    {this.state.isShowListUser === true ? "Hidden": "Show"}
+                    </span>
+                </div>
 
-                <div>My name is {name}</div>
-                <div>My age is {age}</div>
+                {this.state.isShowListUser && 
+                    <div>
+                        {listUser.map((user,index)=>{
+                            return(
+                                    <div className={+user.age > 18 ? "green": "red"}>
+                                        <div>My name is {user.name}</div>
+                                        <div>My age is {user.age}</div>
+                                    </div>
+                                )
 
-                <div>My name is {name}</div>
-                <div>My age is {age}</div> */}
+                            
+                        })}
+                    </div>
+    }
             </div>
-            
-
         )
     }
 
