@@ -1,12 +1,12 @@
 import React from "react";
 
-class UserInfor extends React.Component{
+class AddUserInfor extends React.Component{
     
     //define state
     state = {
-        name: "Tu",
+        name: "",
         address: "Hung Yen",
-        age: 19,
+        age: '',
         year:2024
     };
 
@@ -26,15 +26,22 @@ class UserInfor extends React.Component{
         })
     }
 
-    handleOnChangeYear = (event) =>{
-        this.setState({
-            year: event.target.value
-        })
+  
+
+    handleOnSubmit = (event) =>{
+        event.preventDefault();
+        this.props.handleAddNewUser({
+            name: this.state.name,
+            age: this.state.age
+
+        });
+
     }
+
 
     render(){
         return (
-            <div>
+            <>
             My name is {this.state.name} and 
                 I'm  {this.state.age} year old,
                 Year {this.state.year}
@@ -45,18 +52,13 @@ class UserInfor extends React.Component{
                     <label>Your age</label>
                     <input type="text" value={this.state.age} onChange={(event)=>{this.handleOnChangeAge(event)}}/>
 
-                    <label>Your address</label>
-                    <input type="text" value={this.state.address} onChange={(event)=>{this.handleOnChange(event)}}></input>
-                    
-                    <label>year</label>
-                    <input type="text" value={this.state.year} onChange={(event) =>{this.handleOnChangeYear(event)}}></input>
 
-                    <button>Submit</button>
+                    <button onClick={(event)=>{this.handleOnSubmit(event)}}>Submit</button>
                 </form>
-            </div>
+            </>
         )
     }
 }
 
 
-export default UserInfor;
+export default AddUserInfor;

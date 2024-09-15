@@ -1,39 +1,45 @@
 import React from "react";
-
+import './DisplayInfor.scss';
+import logo from '../logo.svg';
 
 class DisplayInfo extends React.Component{
     state = {
         isShowListUser: true
     }
 
-    handleShowHiden =()=>{
+    handleShow = ()=>{
         this.setState({
             isShowListUser: !this.state.isShowListUser
         })
     }
+
+    
     render(){
         const {listUser} = this.props;
         return(
-            <div>
+            <div className = "display-container">
+                <img src={logo} alt = "logo"></img>
                 <div>
-                    <span onClick={()=>{this.handleShowHiden()}}>
-                    {this.state.isShowListUser === true ? "Hidden": "Show"}
+                    <span onClick={()=>{this.handleShow()}}>
+                    {this.state.isShowListUser === true ? "Hide": "Show"}
+
                     </span>
                 </div>
 
                 {this.state.isShowListUser && 
-                    <div>
+                    <>
                         {listUser.map((user,index)=>{
                             return(
                                     <div className={+user.age > 18 ? "green": "red"}>
-                                        <div>My name is {user.name}</div>
+                                        <div >My name is {user.name}</div>
                                         <div>My age is {user.age}</div>
+                                        <br></br>
                                     </div>
                                 )
 
                             
                         })}
-                    </div>
+                    </>
     }
             </div>
         )
