@@ -13,18 +13,19 @@ class AddUserInfor extends React.Component{
 
 
 
-    handleOnChange = (event)=>{
+    handleOnChangeName = (event)=>{
         this.setState({
             name: event.target.value
         })
-        console.log(event.target.value);
     }
 
     handleOnChangeAge = (event)=>{
         this.setState({
-            age: event.target.value,
+            age: event.target.value
         })
     }
+
+   
 
   
 
@@ -47,10 +48,10 @@ class AddUserInfor extends React.Component{
                 Year {this.state.year}
                 <form>
                     <label>Your name</label>
-                    <input type="text" value={this.state.name} onChange={(event)=>{this.handleOnChange(event)}}/>
+                    <input type="text" value={this.state.name} onChange={(event)=>{this.handleOnChangeName(event)}}/>
 
                     <label>Your age</label>
-                    <input type="text" value={this.state.age} onChange={(event)=>{this.handleOnChangeAge(event)}}/>
+                    <input type="text" value= {this.state.age} onChange={(event)=>{this.handleOnChangeAge(event)}}/>
 
 
                     <button onClick={(event)=>{this.handleOnSubmit(event)}}>Submit</button>
